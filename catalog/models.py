@@ -15,9 +15,13 @@ class ModelAuto(models.Model):
     def __str__(self):
         return f'{self.brand} {self.name}'
 
+    def get_name(self):
+        return f'{self.brand} {self.name}'
+
 
 class Color(models.Model):
     name = models.CharField(max_length=30)
 
     def __str__(self):
         return self.name
+

@@ -1,0 +1,2934 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api_orders/list_orders/colors/:
+    get:
+      operationId: listColors
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ListColor'
+          description: ''
+      tags:
+      - api-orders
+  /api_orders/list_orders/brands/:
+    get:
+      operationId: listBrandAutos
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ListBrandAuto'
+          description: ''
+      tags:
+      - api-orders
+  /api_orders/delete_order/:
+    get:
+      operationId: listOrders
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    post:
+      operationId: createOrder
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Order'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+  /api_orders/delete_order/{id}/:
+    get:
+      operationId: retrieveOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    put:
+      operationId: updateOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Order'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    patch:
+      operationId: partialUpdateOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Order'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    delete:
+      operationId: destroyOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-orders
+  /api_orders/update_order/:
+    get:
+      operationId: listOrders
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    post:
+      operationId: createOrder
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Order'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+  /api_orders/update_order/{id}/:
+    get:
+      operationId: retrieveOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    put:
+      operationId: updateOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Order'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    patch:
+      operationId: partialUpdateOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Order'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    delete:
+      operationId: destroyOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-orders
+  /api_orders/list_orders/:
+    get:
+      operationId: listOrders
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    post:
+      operationId: createOrder
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Order'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+  /api_orders/list_orders/{id}/:
+    get:
+      operationId: retrieveOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    put:
+      operationId: updateOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Order'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    patch:
+      operationId: partialUpdateOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Order'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    delete:
+      operationId: destroyOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-orders
+  /api_orders/create_order/:
+    get:
+      operationId: listOrders
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    post:
+      operationId: createOrder
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Order'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+  /api_orders/create_order/{id}/:
+    get:
+      operationId: retrieveOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    put:
+      operationId: updateOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Order'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    patch:
+      operationId: partialUpdateOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Order'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api-orders
+    delete:
+      operationId: destroyOrder
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this order.
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-orders
+  /api_catalogs/list/:
+    get:
+      operationId: listColors
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AmountOfOrderWithColor'
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/delete_color/:
+    get:
+      operationId: listColors
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    post:
+      operationId: createColor
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Color'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Color'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Color'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/delete_color/{id}/:
+    get:
+      operationId: retrieveColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    put:
+      operationId: updateColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Color'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Color'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Color'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    patch:
+      operationId: partialUpdateColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Color'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Color'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Color'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    delete:
+      operationId: destroyColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/update_color/:
+    get:
+      operationId: listColors
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    post:
+      operationId: createColor
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Color'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Color'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Color'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/update_color/{id}/:
+    get:
+      operationId: retrieveColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    put:
+      operationId: updateColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Color'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Color'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Color'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    patch:
+      operationId: partialUpdateColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Color'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Color'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Color'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    delete:
+      operationId: destroyColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/create_color/:
+    get:
+      operationId: listColors
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    post:
+      operationId: createColor
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Color'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Color'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Color'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/create_color/{id}/:
+    get:
+      operationId: retrieveColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    put:
+      operationId: updateColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Color'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Color'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Color'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    patch:
+      operationId: partialUpdateColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Color'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Color'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Color'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    delete:
+      operationId: destroyColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/list_color/:
+    get:
+      operationId: listColors
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    post:
+      operationId: createColor
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Color'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Color'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Color'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/list_color/{id}/:
+    get:
+      operationId: retrieveColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    put:
+      operationId: updateColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Color'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Color'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Color'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    patch:
+      operationId: partialUpdateColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Color'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Color'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Color'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Color'
+          description: ''
+      tags:
+      - api-catalogs
+    delete:
+      operationId: destroyColor
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this color.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/delete_model_auto/:
+    get:
+      operationId: listModelAutos
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    post:
+      operationId: createModelAuto
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/delete_model_auto/{id}/:
+    get:
+      operationId: retrieveModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    put:
+      operationId: updateModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    patch:
+      operationId: partialUpdateModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    delete:
+      operationId: destroyModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/update_model_auto/:
+    get:
+      operationId: listModelAutos
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    post:
+      operationId: createModelAuto
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/update_model_auto/{id}/:
+    get:
+      operationId: retrieveModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    put:
+      operationId: updateModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    patch:
+      operationId: partialUpdateModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    delete:
+      operationId: destroyModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/create_model_auto/:
+    get:
+      operationId: listModelAutos
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    post:
+      operationId: createModelAuto
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/create_model_auto/{id}/:
+    get:
+      operationId: retrieveModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    put:
+      operationId: updateModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    patch:
+      operationId: partialUpdateModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    delete:
+      operationId: destroyModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/list_model_auto/:
+    get:
+      operationId: listModelAutos
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    post:
+      operationId: createModelAuto
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/list_model_auto/{id}/:
+    get:
+      operationId: retrieveModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    put:
+      operationId: updateModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    patch:
+      operationId: partialUpdateModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ModelAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    delete:
+      operationId: destroyModelAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this model auto.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/delete_brand_auto/:
+    get:
+      operationId: listBrandAutos
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    post:
+      operationId: createBrandAuto
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/delete_brand_auto/{id}/:
+    get:
+      operationId: retrieveBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    put:
+      operationId: updateBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    patch:
+      operationId: partialUpdateBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    delete:
+      operationId: destroyBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/update_brand_auto/:
+    get:
+      operationId: listBrandAutos
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    post:
+      operationId: createBrandAuto
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/update_brand_auto/{id}/:
+    get:
+      operationId: retrieveBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    put:
+      operationId: updateBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    patch:
+      operationId: partialUpdateBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    delete:
+      operationId: destroyBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/create_brand_auto/:
+    get:
+      operationId: listBrandAutos
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    post:
+      operationId: createBrandAuto
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/create_brand_auto/{id}/:
+    get:
+      operationId: retrieveBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    put:
+      operationId: updateBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    patch:
+      operationId: partialUpdateBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    delete:
+      operationId: destroyBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/list_brand_auto/:
+    get:
+      operationId: listBrandAutos
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    post:
+      operationId: createBrandAuto
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+  /api_catalogs/list_brand_auto/{id}/:
+    get:
+      operationId: retrieveBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    put:
+      operationId: updateBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    patch:
+      operationId: partialUpdateBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BrandAuto'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrandAuto'
+          description: ''
+      tags:
+      - api-catalogs
+    delete:
+      operationId: destroyBrandAuto
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this brand auto.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api-catalogs
+components:
+  schemas:
+    ListColor:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+        amount_order:
+          type: integer
+          readOnly: true
+          default: 0
+    ListBrandAuto:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+        amount_order:
+          type: integer
+          readOnly: true
+          default: 0
+    Order:
+      type: object
+      properties:
+        brand:
+          type: string
+          readOnly: true
+        model:
+          type: string
+        color:
+          type: string
+        amount:
+          type: integer
+        date_created:
+          type: string
+          format: date
+          default: '2022-10-21'
+      required:
+      - model
+      - color
+      - amount
+    AmountOfOrderWithColor:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+          readOnly: true
+        amount_order:
+          type: integer
+          readOnly: true
+      required:
+      - id
+    Color:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 30
+      required:
+      - name
+    ModelAuto:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        brand:
+          type: string
+        name:
+          type: string
+          maxLength: 30
+      required:
+      - brand
+      - name
+    BrandAuto:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 30
+      required:
+      - name
