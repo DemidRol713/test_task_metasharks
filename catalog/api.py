@@ -104,7 +104,7 @@ class ModelAutoViewSet(viewsets.ModelViewSet):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     def update(self, request, *args, **kwargs):
-        model_auto = get_object_or_404(BrandAuto.objects.all(), pk=int(kwargs['pk']))
+        model_auto = get_object_or_404(ModelAuto.objects.all(), pk=int(kwargs['pk']))
         model_auto_serializer = self.serializer_class(model_auto, data=request.data)
         if model_auto_serializer.is_valid():
             model_auto_serializer.save()

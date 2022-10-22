@@ -22,7 +22,7 @@ class OrderViewSet(viewsets.ModelViewSet):
     serializer_class = OrderSerializer
     pagination_class = StandardResultsSetPagination
     filter_backends = [OrderingFilter]
-    ordering_fields = ['amount', 'model__brand']
+    ordering_fields = ['amount', 'model__brand__name']
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
